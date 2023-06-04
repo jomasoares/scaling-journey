@@ -10,7 +10,7 @@ from .database import SessionLocal
 page_size = 6
 
 def susep_daily_job(log : bool, start_time : str):
-    schedule.every().day.at(start_time).do(import_from_susep(log=True))
+    schedule.every().day.at(start_time).do(import_from_susep, log=True)
 
 #TODO: importar PJ tambem.
 def import_from_susep(log : bool):
