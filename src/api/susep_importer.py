@@ -11,6 +11,9 @@ page_size = 6
 
 def susep_daily_job(log : bool, start_time : str):
     schedule.every().day.at(start_time).do(import_from_susep, log=True)
+    while True:
+        schedule.run_pending()
+        time.sleep(0.5)
 
 #TODO: importar PJ tambem.
 def import_from_susep(log : bool):
